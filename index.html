@@ -305,7 +305,7 @@ window.saveBoothToFirebase=async(boothNum,cd)=>{
 emailjs.init("EyWTsiF3VuE4OfhpI");
 
 window.sendContractEmail=async(cd)=>{
-  await emailjs.send("service_u7ea6bm","template_ohyctr8",{
+  await emailjs.send("service_u7ea6bm","template_6zpylnt",{
     booth_number:cd.boothNum,company_name:cd.company,contact_name:cd.contact,
     contact_phone:cd.phone,exhibitor_email:cd.email,billing_address:cd.address,
     billing_city:cd.city,website:cd.website,signature:cd.signature,
