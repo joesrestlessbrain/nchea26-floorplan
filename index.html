@@ -30,11 +30,11 @@
       const data = change.doc.data();
       const boothNum = parseInt(change.doc.id);
       if (change.type === "added" || change.type === "modified") {
-        markBoothSold(boothNum, data.company);
-        addToSidebar(boothNum, data.company);
+        window.markBoothSold(boothNum, data.company);
+        window.addToSidebar(boothNum, data.company);
       }
     });
-    updateSoldCount();
+    window.updateSoldCount();
   });
 
   // Save booth to Firebase
@@ -698,7 +698,7 @@ function makeBooth(num){
   return div;
 }
 
-function markBoothSold(num, company){
+window.markBoothSold = function markBoothSold(num, company){
   const el=document.getElementById('booth-'+num);
   if(el && !el.classList.contains('sold')){
     el.classList.add('sold');
@@ -707,7 +707,7 @@ function markBoothSold(num, company){
   }
 }
 
-function addToSidebar(boothNum, company){
+window.addToSidebar = function addToSidebar(boothNum, company){
   document.getElementById('sidebarEmpty').style.display='none';
   // Remove existing entry if any
   const existing=document.getElementById('sidebar-item-'+boothNum);
@@ -738,7 +738,7 @@ function highlightBooth(num){
   }
 }
 
-function updateSoldCount(){
+window.updateSoldCount = function updateSoldCount(){
   const sold=document.querySelectorAll('.booth.sold').length;
   document.getElementById('soldCount').textContent=`${sold} of 140 reserved`;
 }
